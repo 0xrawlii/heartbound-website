@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heartbound - Daggerheart Companion App</title>
+    <meta name="description" content="The essential digital companion for Daggerheart adventures. Master character creation and run seamless sessions with powerful GM tools.">
+
+    <!-- SEO -->
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://heartbound.app/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Heartbound - Daggerheart Companion App">
+    <meta property="og:description" content="Master character creation, track progression, and run seamless sessions with powerful GM tools for Daggerheart.">
+    <meta property="og:url" content="https://heartbound.app/">
+    <meta property="og:site_name" content="Heartbound">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Heartbound - Daggerheart Companion App">
+    <meta name="twitter:description" content="A powerful, privacy-friendly companion app for Daggerheart campaigns.">
+
+    <!-- PWA / Icons -->
+    <meta name="theme-color" content="#667eea">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/manifest.webmanifest">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+        }
+        
+        .logo {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.85;
+        }
+        
+        .app-store-badge {
+            display: inline-block;
+            margin: 0 10px;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .app-store-badge:hover {
+            opacity: 1;
+        }
+        
+        .app-store-badge img {
+            height: 60px;
+            width: auto;
+        }
+        
+        .coming-soon {
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin: 20px 0;
+            color: white;
+            font-weight: 500;
+        }
+        
+        main {
+            background: white;
+            margin: 0 20px;
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .content {
+            padding: 60px 40px;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 50px 0;
+        }
+        
+        .feature-card {
+            background: #f8f9ff;
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .feature-card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .feature-list li {
+            padding: 5px 0;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .feature-list li:before {
+            content: "•";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .contact-section {
+            text-align: center;
+            padding: 40px 0;
+            background: #f8f9ff;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        
+        .contact-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            font-size: 1.1rem;
+        }
+        
+        .contact-info a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        footer a {
+            color: #9ca3af;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        footer a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2.5rem;
+            }
+            
+            .content {
+                padding: 40px 20px;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            main {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Heartbound</h1>
+            <p class="tagline">The Essential Daggerheart Companion</p>
+            <p class="hero-description">
+                Master character creation, track your journey's progression, and run seamless sessions with powerful GM tools designed for the world's most exciting new RPG system.
+            </p>
+            <div class="coming-soon">
+                Coming Soon to App Store & Google Play
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="content">
+                <section class="features">
+                    <div class="feature-card">
+                        <h3>Player Features</h3>
+                        <ul class="feature-list">
+                            <li>Complete Daggerheart character sheets with all classes</li>
+                            <li>Equipment and inventory tracking with 30+ items</li>
+                            <li>Character progression and advancement tools</li>
+                            <li>Offline-first design - works anywhere, anytime</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Game Master Tools</h3>
+                        <ul class="feature-list">
+                            <li>Session tracking and campaign organization</li>
+                            <li>Fear and Hope tracking for authentic Daggerheart gameplay</li>
+                            <li>GM Board for managing adversaries and NPCs during play</li>
+                            <li>Built-in HP and stress tracking for all adversaries</li>
+                            <li>Rich notes system for session planning and recap</li>
+                            <li>Countdown timers for time-sensitive encounters</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Comprehensive Compendium</h3>
+                        <ul class="feature-list">
+                            <li>Create and store custom characters and NPCs</li>
+                            <li>Unique adversaries with full stat tracking</li>
+                            <li>Campaign items and equipment</li>
+                            <li>Session notes for quick reference across campaigns</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <h3>Built for Daggerheart</h3>
+                        <ul class="feature-list">
+                            <li>Native support for all official character classes</li>
+                            <li>Built-in understanding of Daggerheart mechanics</li>
+                            <li>Clean interface that doesn't interrupt storytelling</li>
+                            <li>Local storage keeps your campaigns private and secure</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section class="contact-section">
+                    <h2>Need Support?</h2>
+                    <div class="contact-info">
+                        <p>Have questions or need help? We're here for you.</p>
+                        <p><a href="mailto:support@heartbound.app">support@heartbound.app</a></p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Raul Brito. All rights reserved.</p>
+            <p>
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
+
+
